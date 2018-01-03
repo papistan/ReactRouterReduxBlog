@@ -24,8 +24,9 @@ ReactDOM.render(
  <Provider store={createStoreWithMiddleware(reducers)}>
 		<Router>
 			<div>
-			<Route path="/hello" component={ Hello } />
-			<Route path="/goodbye" component={ Goodbye } />
+				<Route path="/" component={ PostIndex } />
+				<Route path="/posts/:id" component={ PostsShow } />
+				<Route path="/posts/new" component={ PostsNew } />
 			</div>
 		</Router>
  </Provider>

@@ -31,11 +31,11 @@ class PostsIndex extends Component {
 					</ul>
 				</div> 
 				<div className="text-xs-right">
-					<button>
+				
 						<Link className="btn btn-primary" to="/posts/new">
 							NEW POST
 						</Link>
-					</button>
+			
 				</div>
 			</div>
 		)

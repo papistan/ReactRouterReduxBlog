@@ -15,7 +15,9 @@ class PostsNew extends Component {
 				type="text"
 				{...field.input}
 				/>
+				{field.meta.error}
 			</div>
+			
 		)
 	}
 
@@ -25,6 +27,8 @@ class PostsNew extends Component {
 	}
 
 	render() {
+		
+
 		
 		return (
 			<div>
@@ -44,15 +48,35 @@ class PostsNew extends Component {
 						name="content"
 						component={this.renderField}
 					/>
-				</form>
+					<button type="submit" className="btn btn-primary">Submit</button>
 				<Link className="btn btn-danger" to="/">
 					CANCEL
 				</Link>
+				</form>
 			</div>
 		)
 	}
 }
 
+function validate(values){
+	const errors = {};
+
+	if(!values.title || values.title.length < 3) {
+		errors.title = "Please add title with 3 characters or longer"
+	}
+
+	if(!values.categories) {
+		errors.categories = "Please add categories"
+	}
+
+	if(!values.content) {
+		errors.content = "Please add content"
+	}
+
+	return errors
+}
+
 export default reduxForm({
+	validate,
 	form: 'PostsNewForm'
 })(PostsNew);

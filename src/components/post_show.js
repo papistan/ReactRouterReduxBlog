@@ -6,14 +6,20 @@ import { Link } from 'react-router-dom';
 class PostShow extends Component {
 
 	componentDidMount() {
-		const { id } = this.props.match.params.id;
-
-		this.props.showPost( id )
+		const { id } = this.props.match.params;
+		this.props.showPost( id );
 	}
 
 
 	
 	render() {
+
+		const { post } = this.props;
+
+		if(!post) {
+			return <div>Loading...</div>;
+		}
+
 		return (
 			<div>
 				<div>
@@ -22,13 +28,13 @@ class PostShow extends Component {
 				</div>
 				<div>
 					<div>
-						{this.props.post.title}
+						<h3>{post.title}</h3>
 					</div>
 					<div>
-						Categories: {this.props.post.categories}
+						<h6>Categories:{post.categories}</h6>
 					</div>
 					<div>
-						{this.props.post.content}
+						<p>{post.content}</p>
 					</div>
 				</div>
 			</div>

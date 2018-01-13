@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { FETCH_POSTS, SHOW_POST } from '../actions';
+import { FETCH_POSTS, SHOW_POST, DELETE_POST } from '../actions';
 
 
 export default function(state = {}, action) {
@@ -8,6 +8,8 @@ export default function(state = {}, action) {
 			return _.mapKeys(action.payload.data, 'id')
 		case SHOW_POST:
 			return {...state, [action.payload.data.id]: action.payload.data }
+		case DELETE_POST:
+			return state
 		default:
 			return state;
 	}

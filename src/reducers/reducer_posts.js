@@ -9,7 +9,7 @@ export default function(state = {}, action) {
 		case SHOW_POST:
 			return {...state, [action.payload.data.id]: action.payload.data }
 		case DELETE_POST:
-			return state
+			return _.omit(state, action.payload)
 		default:
 			return state;
 	}
